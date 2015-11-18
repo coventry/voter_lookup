@@ -23,17 +23,6 @@ lookup = function() {
     ajax(querystring);
 }
 
-keypress = function(e) {
-    if (event.which == 13 || event.keyCode == 13) {
-         e.preventDefault();
-         lookup();         
-    }
-    if (event.which == 32 || event.keyCode == 32) {
-        lookup();
-    }
-    return true;
-}
-
 // Can't call this "clear".  Some kind of namespace shadowing?
 clear_form = function(e) {
     var form = document.getElementById("signupform");
