@@ -2,6 +2,10 @@ import json, xapian
 from .config import dbpath, fields
 
 def search(query, active_element, numresults=10):
+    # Don't do the search unless  the query is reasonably informative;
+    # could hose the machine.
+    if sum(map(len, query.values())) < 7:
+        return []
     # Put active_element at end of query
     qfields = sorted(query, key=lambda k: k == active_element)
     # XXX There  should be a way  to do this without  going through an
