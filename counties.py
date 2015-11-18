@@ -1,0 +1,183 @@
+counties = '''
+ADAMS
+ALLEN
+ASHLAND
+ASHTABULA
+ATHENS
+AUGLAIZE
+BELMONT
+BROWN
+BUTLER
+CARROLL
+CHAMPAIGN
+CLARK
+CLERMONT
+CLINTON
+COLUMBIANA
+COSHOCTON
+CRAWFORD
+CUYAHOGA
+DARKE
+DEFIANCE
+DELAWARE
+ERIE
+FAIRFIELD
+FAYETTE
+FRANKLIN
+FULTON
+GALLIA
+GEAUGA
+GREENE
+GUERNSEY
+HAMILTON
+HANCOCK
+HARDIN
+HARRISON
+HENRY
+HIGH0LAND
+HOCKING
+HOLMES
+HURON
+JACKSON
+JEFFERSON
+KNOX
+LAKE
+LAWRENCE
+LICKING
+LOGAN
+LORAIN
+LUCAS
+MADISON
+MAHONING
+MARION
+MEDINA
+MEIGS
+MERCER
+MIAMI
+MONROE
+MONTGOMERY
+MORGAN
+MORROW
+MUSKINGUM
+NOBLE
+OTTAWA
+PAULDING
+PERRY
+PICKAWAY
+PIKE
+PORTAGE
+PREBLE
+PUTNAM
+RICHLAND
+ROSS
+SANDUSKY
+SCIOTO
+SENECA
+SHELBY
+STARK
+SUMMIT
+TRUMBULL
+TUSCARAWAS
+UNION
+VANWERT
+VINTON
+WARREN
+WASHINGTON
+WAYNE
+WILLIAMS
+WOOD
+WYANDOT
+'''.strip().split('\n')
+
+abbrev_table = '''
+ADA	Adams
+ALL	Allen
+ASD	Ashland
+ATB	Ashtabula
+ATH	Athens
+AUG	Auglaize
+BEL	Belmont
+BRO	Brown
+BUT	Butler
+CAR	Carroll
+CHP	Champaign
+CLA	Clark
+CLE	Clermont
+CLI	Clinton
+COL	Columbiana
+COS	Coshocton
+CRA	Crawford
+CUY	Cuyahoga
+DAR	Darke
+DEF	Defiance
+DEL	Delaware
+ERI	Erie
+FAI	Fairfield
+FAY	Fayette
+FRA	Franklin
+FUL	Fulton
+GAL	Gallia
+GEA	Geauga
+GRE	Greene
+GUE	Guernsey
+HAM	Hamilton
+HAN	Hancock
+HAR	Hardin
+HAS	Harrison
+HEN	Henry
+HIG	Highland
+HOC	Hocking
+HOL	Holmes
+HUR	Huron
+JAC	Jackson
+JEF	Jefferson
+KNO	Knox
+LAK	Lake
+LAW	Lawrence
+LIC	Licking
+LOG	Logan
+LOR	Lorain
+LUC	Lucas
+MAD	Madison
+MAH	Mahoning
+MAR	Marion
+MED	Medina
+MEG	Meigs
+MER	Mercer
+MIA	Miami
+MOE	Monroe
+MOT	Montgomery
+MRG	Morgan
+MRW	Morrow
+MUS	Muskingum
+NOB	Noble
+OTT	Ottawa
+PAU	Paulding
+PER	Perry
+PIC	Pickaway
+PIK	Pike
+POR	Portage
+PRE	Preble
+PUT	Putnam
+RIC	Richland
+ROS	Ross
+SAN	Sandusky
+SEN	Seneca
+SCI	Scioto
+SHE	Shelby
+STA	Stark
+SUM	Summit
+TRU	Trumbull
+TUS	Tuscarawas
+UNI	Union
+VAN	Van Wert
+VIN	Vinton
+WAR	Warren
+WAS	Washington
+WAY	Wayne
+WIL	Williams
+WOO	Wood
+WYA	Wyandot
+'''.strip().split('\n')
+
+abbrevs = [l.split()[0] for l in abbrev_table]
