@@ -1,0 +1,7 @@
+*.pyc
+\#*\#
+data
+*.log
+conf.conf
+.\#*
+conf.conf
