@@ -20,7 +20,6 @@ lookup = function() {
     }
     query.push('active_element=' + document.activeElement.name);
     querystring = "/lookup?" + query.join("&");
-    console.log(querystring)
     ajax(querystring);
 }
 

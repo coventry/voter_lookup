@@ -9,13 +9,11 @@ def search(query, active_element, numresults=10):
     qvalues = [(k, e) for k in qfields for e in query[k].split()]
     qstring = ['%s:%s' % (field, value) for field, value in qvalues]
     querystring = ' AND '.join(qstring)
-    print qstring
     db = xapian.Database(dbpath)
     queryparser = xapian.QueryParser()
     queryparser.set_database(db)
     for field, abbrev in fields.items():
         queryparser.add_prefix(field, abbrev)
-    print querystring
     query = queryparser.parse_query(querystring,
                                     queryparser.FLAG_BOOLEAN |
                                     queryparser.FLAG_PARTIAL |
