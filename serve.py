@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import cherrypy, os, sys
+import cherrypy, os, sys, json
 
 current_dir = os.getcwd()
 
@@ -39,6 +39,7 @@ class Root(object):
     @cherrypy.expose
     def lookup(self, **kw):
         active_element = kw.pop('active_element')
+        reqnum = kw.pop('reqnum')
         values = dict((k, v) for k, v in kw.items() if v != '')
         results = query.search(values, active_element)
         print results
@@ -47,7 +48,7 @@ class Root(object):
         body = ['<tr>%s</tr>' % ''.join(r) for r in [headings] + rows]
         table_preamble = '<table border=1>'
         table = [table_preamble, ''.join(body), '</table>']
-        return ''.join(table)
+        return json.dumps(dict(result=''.join(table), reqnum=reqnum))
 
 if __name__ == '__main__':
     cherrypy.config.update({'server.socket_port': int(sys.argv[1]),

@@ -1,8 +1,16 @@
+current_request_number = 0;
+displayed_request_number = 0;
+
 ajax = function(querystring) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("results").innerHTML = xmlhttp.responseText;
+	    resp = JSON.parse(xmlhttp.responseText);
+	    requestnum = parseInt(resp.reqnum)
+	    if (requestnum >= displayed_request_number) {
+		document.getElementById("results").innerHTML = resp.result;
+		displayed_request_number = requestnum;
+	    }
         }
     };
     xmlhttp.open("GET", querystring, true);
@@ -19,6 +27,8 @@ lookup = function() {
         }
     }
     query.push('active_element=' + document.activeElement.name);
+    query.push('reqnum=' + current_request_number.toString());
+    current_request_number += 1;
     querystring = "/lookup?" + query.join("&");
     ajax(querystring);
 }
