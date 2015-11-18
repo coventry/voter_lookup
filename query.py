@@ -19,6 +19,7 @@ def search(query, active_element, numresults=10):
                                     queryparser.FLAG_PARTIAL |
                                     queryparser.FLAG_WILDCARD)
     enquire = xapian.Enquire(db)
+    enquire.set_weighting_scheme(xapian.BoolWeight())
     enquire.set_query(query)
     return [json.loads(r.document.get_data())
             for r in enquire.get_mset(0, numresults)]
