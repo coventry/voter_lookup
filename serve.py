@@ -23,7 +23,7 @@ class Root(object):
         primaries = [v for k, v in voter.items() if k.startswith('PRIMARY')]
         # Voters are qualified  if they voted in a dem  primary in the
         # last two years, or if they voted in no other primaries.
-        return 'D' in primaries or all(p == '' for p in primaries)
+        return 'D' in primaries or all(p in ('', 'X') for p in primaries)
 
     def affiliation(voter):
         return voter['PARTY_AFFILIATION']
