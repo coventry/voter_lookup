@@ -20,7 +20,8 @@ class Root(object):
 
     @staticmethod
     def qualified(voter):
-        primaries = [v for k, v in voter.items() if k.startswith('PRIMARY')]
+        primaries = [v for k, v in voter.items() if k.startswith('PRIMARY') and
+                     k.split('/')[-1] in '2013 2014 2015'.split()]
         # Voters are qualified  if they voted in a dem  primary in the
         # last two years, or if they voted in no other primaries.
         return 'D' in primaries or all(p in ('', 'X') for p in primaries)
