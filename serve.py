@@ -32,6 +32,7 @@ class Root(object):
         ('D', lambda v: "&#x2713;" if Root.qualified(v) else ""),
         ('A', affiliation),
         ('Cty', lambda v: counties.abbrevs[int(v['COUNTY_NUMBER'])-1]),
+        ('CD', lambda v: v['CONGRESSIONAL_DISTRICT']),
         ('Name', lambda v: '%s %s' % (v['FIRST_NAME'], v['LAST_NAME'])),
         ('Address', lambda v: '%s %s' % (v['RESIDENTIAL_ADDRESS1'], v['RESIDENTIAL_ZIP'])),
         ]
